@@ -1,10 +1,11 @@
 import React from "react";
+import mealsImage from "../../assets/meals.jpeg";
 import styles from "./Banner.module.css";
 
-const Banner = (props) => {
+const Banner = () => {
   return (
     <div className={styles["banner"]}>
-      <img src={props.src} />
+      <img src={mealsImage} alt="Meals Banner" />
     </div>
   );
 };
