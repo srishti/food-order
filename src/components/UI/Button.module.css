@@ -1,0 +1,16 @@
+.button {
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.button.primary {
+  color: var(--clr-white);
+  background-color: var(--clr-primary);
+  border: none;
+}

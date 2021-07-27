@@ -1,0 +1,24 @@
+/* Global Variables */
+:root {
+  --clr-primary: #944120;
+  --clr-black: #222;
+  --clr-white: #fff;
+  --clr-dark-gray: #333;
+  --clr-light-gray: #ccc;
+  --font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* CSS Resets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  background-color: var(--clr-black);
+}

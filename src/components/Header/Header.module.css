@@ -1,0 +1,12 @@
+.header {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+}

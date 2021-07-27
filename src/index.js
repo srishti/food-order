@@ -1,10 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { FoodContextProvider } from "./context/food-context";
+import "./index.css";
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <FoodContextProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </FoodContextProvider>,
+  // </React.StrictMode>,
+  document.getElementById("root")
 );

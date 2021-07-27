@@ -1,0 +1,17 @@
+.food-items {
+  width: 60%;
+  margin: 0 auto;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card {
+  background-color: var(--clr-white);
+}
+
+.food-items-list {
+  padding: 0 1.5rem;
+  list-style-type: none;
+}
