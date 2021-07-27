@@ -25,62 +25,62 @@ const CartSummary = (props) => {
     foodContext.increment(foodItem, 1);
   };
 
-  const closeModalHandler = () => {};
+  const closeCartSummaryModalHandler = () => {
+    props.hideCartSummary();
+  };
 
   const placeOrderHandler = () => {
     alert("Ordered!");
   };
 
   return (
-    foodContext.selectedItems.length > 0 && (
-      <div>
-        <Modal className={styles["modal"]}>
-          <ul className={styles["items-list"]}>
-            {foodContext.selectedItems.map((foodItem) => {
-              return (
-                <li key={foodItem.id} className={styles["item"]}>
-                  <div className={styles["info"]}>
-                    <h4>{foodItem.name}</h4>
-                    <div className={styles["price-quantity"]}>
-                      <span className={styles["price"]}>
-                        {`INR ${foodItem.price.toFixed(2)}`}
-                      </span>
-                      <span className={styles["quantity"]}>
-                        {`x ${foodItem.quantity}`}
-                      </span>
-                    </div>
+    <div>
+      <Modal onClose={closeCartSummaryModalHandler}>
+        <ul className={styles["items-list"]}>
+          {foodContext.selectedItems.map((foodItem) => {
+            return (
+              <li key={foodItem.id} className={styles["item"]}>
+                <div className={styles["info"]}>
+                  <h4>{foodItem.name}</h4>
+                  <div className={styles["price-quantity"]}>
+                    <span className={styles["price"]}>
+                      {`INR ${foodItem.price.toFixed(2)}`}
+                    </span>
+                    <span className={styles["quantity"]}>
+                      {`x ${foodItem.quantity}`}
+                    </span>
                   </div>
-                  <div className={styles["item-actions"]}>
-                    <button
-                      type="button"
-                      onClick={() => decrementButtonHandler(foodItem.id)}
-                    >
-                      -
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => incrementButtonHandler(foodItem)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-          <div className={styles["total-amount"]}>
-            <h4>Total Amount</h4>
-            <h4>{`INR ${getTotalAmount()}`}</h4>
-          </div>
-          <div className={styles["modal-actions"]}>
-            <Button onClick={props.onCloseModal}>Close</Button>
-            <Button primary onClick={placeOrderHandler}>
-              Order
-            </Button>
-          </div>
-        </Modal>
-      </div>
-    )
+                </div>
+                <div className={styles["item-actions"]}>
+                  <button
+                    type="button"
+                    onClick={() => decrementButtonHandler(foodItem.id)}
+                  >
+                    -
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => incrementButtonHandler(foodItem)}
+                  >
+                    +
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        <div className={styles["total-amount"]}>
+          <h4>Total Amount</h4>
+          <h4>{`INR ${getTotalAmount()}`}</h4>
+        </div>
+        <div className={styles["modal-actions"]}>
+          <Button onClick={closeCartSummaryModalHandler}>Close</Button>
+          <Button primary onClick={placeOrderHandler}>
+            Order
+          </Button>
+        </div>
+      </Modal>
+    </div>
   );
 };
 

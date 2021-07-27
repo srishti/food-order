@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <header className={styles["header"]}>
       <h1>ReactMeals</h1>
-      <Cart onClick={props.onOpenCartSummaryModal} />
+      <Cart onClick={props.showCartSummary} />
     </header>
   );
 };
