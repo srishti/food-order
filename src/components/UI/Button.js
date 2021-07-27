@@ -6,6 +6,10 @@ const Button = (props) => {
   if (props.primary) {
     cssClass += ` ${styles["primary"]}`;
   }
+  if (props.className) {
+    cssClass += ` ${props.className}`;
+  }
+
   return (
     <button
       className={cssClass}

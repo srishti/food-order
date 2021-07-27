@@ -1,20 +1,28 @@
-.cart {
+.button {
   width: 15rem;
   border-radius: 2rem;
   background-color: var(--clr-dark-gray);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 0.85rem 2rem;
   cursor: pointer;
+  background-color: var(--clr-dark-gray);
+  color: var(--clr-white);
+  font-size: 1rem;
 }
 
-.label {
-  margin: 0 1rem 0 0;
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.text {
+  margin: 0;
   text-transform: capitalize;
 }
 
-.items-count {
+.badge {
   border-radius: 40%;
   background-color: var(--clr-primary);
   color: var(--clr-white);
