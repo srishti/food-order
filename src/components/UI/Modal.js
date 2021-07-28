@@ -15,7 +15,7 @@ const ModalOverlay = (props) => {
 
   return (
     <section className={cssClass}>
-      <Card className={styles["card"]}>{props.children}</Card>
+      <Card>{props.children}</Card>
     </section>
   );
 };

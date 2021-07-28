@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import Header from "./components/Layout/Header";
 import Banner from "./components/Layout/Banner";
-import CartSummary from "./components/Cart/CartSummary";
+import Cart from "./components/Cart/Cart";
 import MealsSummary from "./components/Meals/MealsSummary";
 import Meals from "./components/Meals/Meals";
 import FoodContext from "./context/food-context";
@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <Header showCartSummary={showCartSummary} />
       {isCartSummaryVisible && foodContext.selectedItems.length > 0 && (
-        <CartSummary hideCartSummary={hideCartSummary} />
+        <Cart hideCartSummary={hideCartSummary} />
       )}
       <Banner />
       <main>

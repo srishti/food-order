@@ -5,6 +5,14 @@
   align-items: center;
 }
 
+.meal-item:first-of-type {
+  padding-top: 0;
+}
+
+.meal-item:last-of-type {
+  padding-bottom: 0;
+}
+
 .meal-item:not(:last-of-type) {
   border-bottom: 1px solid var(--clr-light-gray);
 }

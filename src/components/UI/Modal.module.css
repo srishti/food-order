@@ -7,11 +7,6 @@
   z-index: 500;
 }
 
-.card {
-  padding: 1rem 2rem;
-  background-color: var(--clr-white);
-}
-
 .backdrop {
   position: fixed;
   top: 0;
