@@ -1,0 +1,29 @@
+.meals {
+  width: 70%;
+  max-width: 60rem;
+  margin: -4rem auto;
+  animation: meals-appear 1s ease-out forwards;
+}
+
+.card {
+  background-color: var(--clr-white);
+  padding: 1rem 0;
+}
+
+.meals-list {
+  padding: 0 2rem;
+  margin: 0;
+  list-style-type: none;
+}
+
+@keyframes meals-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

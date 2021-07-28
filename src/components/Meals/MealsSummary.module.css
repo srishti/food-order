@@ -1,0 +1,25 @@
+.summary {
+  color: var(--clr-white);
+  width: 50%;
+  max-width: 35rem;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  transform: translateY(-50%);
+}
+
+.card {
+  background-color: var(--clr-dark-gray);
+  padding: 1.5rem;
+}
+
+.summary h2 {
+  font-size: 1.75rem;
+  text-transform: capitalize;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.summary p {
+  margin-bottom: 0;
+}
