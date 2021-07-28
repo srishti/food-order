@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Button from "../UI/Button";
 import CartIcon from "../Cart/CartIcon";
-import FoodContext from "../../context/food-context";
+import CartContext from "../../store/cart-context";
 import styles from "./HeaderCartButton.module.css";
 
 const HeaderCartButton = (props) => {
-  const foodContext = useContext(FoodContext);
+  const cartContext = useContext(CartContext);
 
   return (
     <Button className={styles["button"]} onClick={props.onClick}>
@@ -13,7 +13,7 @@ const HeaderCartButton = (props) => {
         <CartIcon />
       </span>
       <span className={styles["text"]}>Your Cart</span>
-      <span className={styles["badge"]}>{foodContext.getItemsCount()}</span>
+      <span className={styles["badge"]}>{cartContext.items.length}</span>
     </Button>
   );
 };

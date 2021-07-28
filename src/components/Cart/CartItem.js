@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import FoodContext from "../../context/food-context";
+import CartContext from "../../store/cart-context";
 import styles from "./CartItem.module.css";
 
 const CartItem = (props) => {
-  const foodContext = useContext(FoodContext);
+  const cartContext = useContext(CartContext);
 
   const { id, name, price, quantity } = props.item;
 
-  const decrementButtonHandler = (foodItemId) => {
-    foodContext.decrement(foodItemId, 1);
+  const decrementButtonHandler = (itemId) => {
+    cartContext.removeItem(itemId, 1);
   };
 
-  const incrementButtonHandler = (foodItem) => {
-    foodContext.increment(foodItem, 1);
+  const incrementButtonHandler = (item) => {
+    cartContext.addItem(item, 1);
   };
 
   return (

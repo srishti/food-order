@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
-import FoodContext from "../../../context/food-context";
+import CartContext from "../../../store/cart-context";
 import styles from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
   const [quantityText, setQuantityText] = useState("1");
 
-  const foodContext = useContext(FoodContext);
+  const cartContext = useContext(CartContext);
 
   const changeQuantityHandler = (event) => {
     if (event.target.value) {
@@ -17,7 +17,7 @@ const MealItemForm = (props) => {
 
   const addMealHandler = () => {
     const quantity = +quantityText;
-    foodContext.increment(props.meal, quantity);
+    cartContext.addItem(props.meal, quantity);
   };
 
   return (
