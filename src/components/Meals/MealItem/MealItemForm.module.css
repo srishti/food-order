@@ -1,0 +1,9 @@
+.meal-item-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meal-input {
+  margin-bottom: 0.5rem;
+}

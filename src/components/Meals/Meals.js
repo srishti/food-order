@@ -1,17 +1,17 @@
 import React from "react";
 import Card from "../UI/Card";
-import FoodItem from "./FoodItem";
+import MealItem from "./MealItem/MealItem";
 import DUMMY_MEALS from "./dummy-meals";
 import styles from "./Meals.module.css";
 
 const Meals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => {
-    return <FoodItem key={meal.id} data={meal} />;
+    return <MealItem key={meal.id} meal={meal} />;
   });
 
   return (
     <section className={styles["meals"]}>
-      <Card className={styles["card"]}>
+      <Card>
         <ul className={styles["meals-list"]}>{mealsList}</ul>
       </Card>
     </section>

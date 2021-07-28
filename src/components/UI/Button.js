@@ -7,7 +7,7 @@ const Button = (props) => {
     cssClass += ` ${styles["primary"]}`;
   }
   if (props.className) {
-    cssClass += ` ${props.className}`;
+    cssClass = `${props.className} ${cssClass}`;
   }
 
   return (
