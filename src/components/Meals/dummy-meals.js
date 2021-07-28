@@ -1,3 +1,4 @@
+// dummy meals data
 const DUMMY_MEALS = [
   {
     id: "m1",

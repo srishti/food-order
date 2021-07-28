@@ -10,6 +10,10 @@ const MealItem = (props) => {
 
   const formattedPrice = `INR ${price.toFixed(2)}`;
 
+  /**
+   * Function as event handler to add an item to the cart
+   * @param {Number} quantity - quantity entered by user for the item to be added
+   */
   const addItemToCartHandler = (quantity) => {
     const updatedMeal = { ...props.meal, quantity };
     cartContext.addItem(updatedMeal);

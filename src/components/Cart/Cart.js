@@ -8,22 +8,34 @@ import styles from "./Cart.module.css";
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
 
-  const addMealItemToCartHandler = (item) => {
+  /**
+   * Function as event handler to add an item to the cart
+   * @param {Object} item - item to be added to cart
+   */
+  const incrementCartItemHandler = (item) => {
     const updatedItem = { ...item, quantity: 1 };
     cartContext.addItem(updatedItem);
   };
 
-  const removeMealItemFromCartHandler = (itemId) => {
+  /**
+   * Function as event handler to remove an item from the cart
+   * @param {String} itemId - ID of item to be removed from cart
+   */
+  const decrementCartItemHandler = (itemId) => {
     cartContext.removeItem(itemId);
   };
 
+  /**
+   * Function as event handler to place an order with given items in cart
+   */
   const placeOrderHandler = () => {
     alert("Ordered!");
   };
 
   const formattedAmount = `INR ${cartContext.totalAmount}`;
-  const doesCartHasItems = cartContext.items.length > 0;
+  const doesCartHasItems = cartContext.items.length > 0; // determines if 'Order' button should be displayed
 
+  // markup for meal items to be rendered inside the cart
   const cartItemsListToRender = (
     <ul className={styles["cart-items-list"]}>
       {cartContext.items.map((meal) => {
@@ -31,8 +43,8 @@ const Cart = (props) => {
           <CartItem
             key={meal.id}
             item={meal}
-            onAddItem={(item) => addMealItemToCartHandler(item)}
-            onRemoveItem={(itemId) => removeMealItemFromCartHandler(itemId)}
+            onIncrementItem={(item) => incrementCartItemHandler(item)}
+            onDecrementItem={(itemId) => decrementCartItemHandler(itemId)}
           />
         );
       })}

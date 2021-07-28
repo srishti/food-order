@@ -16,10 +16,10 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles["item-actions"]}>
-        <button type="button" onClick={() => props.onRemoveItem(id)}>
+        <button type="button" onClick={() => props.onDecrementItem(id)}>
           -
         </button>
-        <button type="button" onClick={() => props.onAddItem(props.item)}>
+        <button type="button" onClick={() => props.onIncrementItem(props.item)}>
           +
         </button>
       </div>

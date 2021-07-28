@@ -5,6 +5,7 @@ import DUMMY_MEALS from "./dummy-meals";
 import styles from "./Meals.module.css";
 
 const Meals = () => {
+  // markup for rendering list of meals
   const mealsListToRender = DUMMY_MEALS.map((meal) => {
     return <MealItem key={meal.id} meal={meal} />;
   });

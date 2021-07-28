@@ -6,6 +6,10 @@ import styles from "./MealItemForm.module.css";
 const MealItemForm = (props) => {
   const quantityInputRef = useRef(null);
 
+  /**
+   * Function invoked as event handler when the form is submitted by clicking on Add button
+   * @param {Object} event - event fired against the event handler
+   */
   const submitFormHandler = (event) => {
     event.preventDefault();
     const quantity = +quantityInputRef.current.value;

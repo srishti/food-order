@@ -1,6 +1,6 @@
 import React from "react";
 
-const CART_CONTEXT_INITIAL_DATA = {
+const cartContextDefaultData = {
   items: [],
   totalItems: 0,
   totalAmount: 0,
@@ -8,6 +8,6 @@ const CART_CONTEXT_INITIAL_DATA = {
   removeItem: (itemId) => {},
 };
 
-const CartContext = React.createContext(CART_CONTEXT_INITIAL_DATA);
+const CartContext = React.createContext(cartContextDefaultData);
 
 export default CartContext;
