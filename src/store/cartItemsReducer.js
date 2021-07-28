@@ -5,12 +5,12 @@ export const cartItemsReducer = (state, action) => {
   switch (action.type) {
     case constants.CART_ITEM_ACTION_TYPE.ADD: {
       const item = action.payload;
-      const selectedItemIndex = utils.findIndexById(state, item.id);
+      const existingItemIndex = utils.findIndexById(state, item.id);
       const updatedState = [...state];
 
-      if (selectedItemIndex > -1) {
-        updatedState[selectedItemIndex].quantity =
-          updatedState[selectedItemIndex].quantity + item.quantity;
+      if (existingItemIndex > -1) {
+        updatedState[existingItemIndex].quantity =
+          updatedState[existingItemIndex].quantity + item.quantity;
       } else {
         updatedState.push(item);
       }
@@ -20,16 +20,16 @@ export const cartItemsReducer = (state, action) => {
 
     case constants.CART_ITEM_ACTION_TYPE.REMOVE: {
       const itemId = action.payload;
-      const selectedItemIndex = utils.findIndexById(state, itemId);
+      const existingItemIndex = utils.findIndexById(state, itemId);
       const updatedState = [...state];
 
-      updatedState[selectedItemIndex].quantity =
-        updatedState[selectedItemIndex].quantity - 1;
+      updatedState[existingItemIndex].quantity =
+        updatedState[existingItemIndex].quantity - 1;
 
-      if (updatedState[selectedItemIndex].quantity < 0) {
-        updatedState[selectedItemIndex].quantity = 0;
-      } else if (updatedState[selectedItemIndex].quantity === 0) {
-        updatedState.splice(selectedItemIndex, 1);
+      if (updatedState[existingItemIndex].quantity < 0) {
+        updatedState[existingItemIndex].quantity = 0;
+      } else if (updatedState[existingItemIndex].quantity === 0) {
+        updatedState.splice(existingItemIndex, 1);
       }
 
       return updatedState;

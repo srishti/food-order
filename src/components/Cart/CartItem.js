@@ -1,19 +1,8 @@
 import React, { useContext } from "react";
-import CartContext from "../../store/cart-context";
 import styles from "./CartItem.module.css";
 
 const CartItem = (props) => {
-  const cartContext = useContext(CartContext);
-
   const { id, name, price, quantity } = props.item;
-
-  const decrementButtonHandler = (itemId) => {
-    cartContext.removeItem(itemId, 1);
-  };
-
-  const incrementButtonHandler = (item) => {
-    cartContext.addItem(item, 1);
-  };
 
   return (
     <li className={styles["cart-item"]}>
@@ -27,13 +16,10 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles["item-actions"]}>
-        <button type="button" onClick={() => decrementButtonHandler(id)}>
+        <button type="button" onClick={() => props.onRemoveItem(id)}>
           -
         </button>
-        <button
-          type="button"
-          onClick={() => incrementButtonHandler(props.item)}
-        >
+        <button type="button" onClick={() => props.onAddItem(props.item)}>
           +
         </button>
       </div>

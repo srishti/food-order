@@ -8,19 +8,36 @@ import styles from "./Cart.module.css";
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
 
+  const addMealItemToCartHandler = (item) => {
+    const updatedItem = { ...item, quantity: 1 };
+    cartContext.addItem(updatedItem);
+  };
+
+  const removeMealItemFromCartHandler = (itemId) => {
+    cartContext.removeItem(itemId);
+  };
+
   const placeOrderHandler = () => {
     alert("Ordered!");
   };
 
+  const formattedAmount = `INR ${cartContext.totalAmount}`;
+  const doesCartHasItems = cartContext.items.length > 0;
+
   const cartItemsListToRender = (
     <ul className={styles["cart-items-list"]}>
       {cartContext.items.map((meal) => {
-        return <CartItem key={meal.id} item={meal} />;
+        return (
+          <CartItem
+            key={meal.id}
+            item={meal}
+            onAddItem={(item) => addMealItemToCartHandler(item)}
+            onRemoveItem={(itemId) => removeMealItemFromCartHandler(itemId)}
+          />
+        );
       })}
     </ul>
   );
-
-  const formattedAmount = `INR ${cartContext.totalAmount}`;
 
   return (
     <Modal onClose={props.onHideCart}>
@@ -31,9 +48,11 @@ const Cart = (props) => {
       </div>
       <div className={styles["modal-actions"]}>
         <Button onClick={props.onHideCart}>Close</Button>
-        <Button primary onClick={placeOrderHandler}>
-          Order
-        </Button>
+        {doesCartHasItems && (
+          <Button primary onClick={placeOrderHandler}>
+            Order
+          </Button>
+        )}
       </div>
     </Modal>
   );
