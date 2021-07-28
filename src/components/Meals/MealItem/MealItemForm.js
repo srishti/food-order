@@ -1,41 +1,33 @@
-import React, { useState, useContext } from "react";
+import React, { useRef } from "react";
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
-import CartContext from "../../../store/cart-context";
 import styles from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
-  const [quantityText, setQuantityText] = useState("1");
+  const quantityInputRef = useRef(null);
 
-  const cartContext = useContext(CartContext);
-
-  const changeQuantityHandler = (event) => {
-    if (event.target.value) {
-      setQuantityText(event.target.value);
-    }
-  };
-
-  const addMealHandler = () => {
-    const quantity = +quantityText;
-    cartContext.addItem(props.meal, quantity);
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    const quantity = +quantityInputRef.current.value;
+    props.onAddItemToCart(quantity);
   };
 
   return (
-    <form className={styles["meal-item-form"]}>
+    <form className={styles["meal-item-form"]} onSubmit={submitFormHandler}>
       <Input
+        ref={quantityInputRef}
         label="Quantity"
         className={styles["meal-input"]}
         input={{
-          id: `quantity_${props.meal.id}`,
+          id: `quantity_${props.mealId}`,
           type: "number",
           min: "1",
           max: "5",
           step: "1",
-          value: quantityText,
-          onChange: changeQuantityHandler,
+          defaultValue: "1",
         }}
       />
-      <Button primary onClick={addMealHandler}>
+      <Button primary type="submit">
         + Add
       </Button>
     </form>

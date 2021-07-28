@@ -6,17 +6,17 @@ import { cartItemsReducer } from "./cartItemsReducer";
 const CartProvider = (props) => {
   const [items, dispatchItemAction] = useReducer(cartItemsReducer, []);
 
-  const addItemToCart = (item, quantity) => {
+  const addItemToCart = (item) => {
     dispatchItemAction({
       type: constants.CART_ITEM_ACTION_TYPE.ADD,
-      payload: { item, quantity },
+      payload: item,
     });
   };
 
-  const removeItemFromCart = (itemId, quantity) => {
+  const removeItemFromCart = (itemId) => {
     dispatchItemAction({
       type: constants.CART_ITEM_ACTION_TYPE.REMOVE,
-      payload: { itemId, quantity },
+      payload: itemId,
     });
   };
 
