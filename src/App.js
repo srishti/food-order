@@ -7,22 +7,22 @@ import Meals from "./components/Meals/Meals";
 import FoodContext from "./context/food-context";
 
 const App = () => {
-  const [isCartSummaryVisible, setIsCartSummaryVisible] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false);
   const foodContext = useContext(FoodContext);
 
-  const showCartSummary = () => {
-    setIsCartSummaryVisible(true);
+  const showCart = () => {
+    setIsCartVisible(true);
   };
 
-  const hideCartSummary = () => {
-    setIsCartSummaryVisible(false);
+  const hideCart = () => {
+    setIsCartVisible(false);
   };
 
   return (
     <div>
-      <Header showCartSummary={showCartSummary} />
-      {isCartSummaryVisible && foodContext.selectedItems.length > 0 && (
-        <Cart hideCartSummary={hideCartSummary} />
+      <Header onShowCart={showCart} />
+      {isCartVisible && foodContext.selectedItems.length > 0 && (
+        <Cart onHideCart={hideCart} />
       )}
       <Banner />
       <main>

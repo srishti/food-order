@@ -18,31 +18,27 @@ const Cart = (props) => {
     return totalAmount.toFixed(2);
   };
 
-  const closeCartSummaryModalHandler = () => {
-    props.hideCartSummary();
-  };
-
   const placeOrderHandler = () => {
     alert("Ordered!");
   };
 
   const cartItemsListToRender = (
     <ul className={styles["cart-items-list"]}>
-      {foodContext.selectedItems.map((foodItem) => {
-        return <CartItem key={foodItem.id} item={foodItem} />;
+      {foodContext.selectedItems.map((meal) => {
+        return <CartItem key={meal.id} item={meal} />;
       })}
     </ul>
   );
 
   return (
-    <Modal onClose={closeCartSummaryModalHandler}>
+    <Modal onClose={props.onHideCart}>
       {cartItemsListToRender}
       <div className={styles["total-cart-amount"]}>
         <h4>Total Amount</h4>
         <h4>{`INR ${getTotalAmount()}`}</h4>
       </div>
       <div className={styles["modal-actions"]}>
-        <Button onClick={closeCartSummaryModalHandler}>Close</Button>
+        <Button onClick={props.onHideCart}>Close</Button>
         <Button primary onClick={placeOrderHandler}>
           Order
         </Button>
