@@ -5,9 +5,24 @@
 }
 
 .meal-input {
-  margin-bottom: 0.5rem;
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.meal-input label {
+  display: none;
 }
 
 .meal-input.invalid input {
   border: 1px solid var(--clr-red);
+}
+
+.meal-input button {
+  width: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  .meal-input label {
+    display: block;
+  }
 }

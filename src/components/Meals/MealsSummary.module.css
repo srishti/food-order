@@ -1,11 +1,12 @@
 .summary {
   color: var(--clr-white);
-  width: 50%;
+  width: 85%;
   max-width: 35rem;
   margin: 0 auto;
   text-align: center;
   position: relative;
   transform: translateY(-50%);
+  z-index: 100;
 }
 
 .card {

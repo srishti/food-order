@@ -26,7 +26,7 @@ const MealItem = (props) => {
         <em>{description}</em>
         <div className={styles["meal-price"]}>{formattedPrice}</div>
       </div>
-      <div>
+      <div className={styles["meal-item-form"]}>
         <MealItemForm
           mealId={props.meal.id}
           onAddItemToCart={(quantity) => addItemToCartHandler(quantity)}
